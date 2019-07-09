@@ -1,0 +1,54 @@
+TESTS
+
+TEST 1: DONE - good policy but car follows right lane. To check if CTE is to high in reward function
+STATS = "./stats/test-1.csv"
+MODEL = "./save_model/model_test-1.h5"
+MODEL_TYPE = 1
+ACTION_SPACE = 15 - ONLY STEERING
+LANE_DETECTION_TYPE = 1
+REWARD: NO THROTTLE/ NO STEERING/ ONLY CTE
+CTE_MAX_ERR = 3.5
+CTE_LIMIT = 3.0
+
+TEST 2: DONE - good policy but car has too variable steering - try to add penalty for "hard" steering
+STATS = "./stats/test-2.csv"
+MODEL = "./save_model/model_test-2.h5"
+MODEL_TYPE = 1
+ACTION_SPACE = 15 - ONLY STEERING
+LANE_DETECTION_TYPE = 2
+REWARD: NO THROTTLE/ NO STEERING/ ONLY CTE
+CTE_MAX_ERR = 3.5
+CTE_LIMIT = 3.0
+
+TEST 3: DONE - bad policy - car steering is unstable and fails after few steps
+             - used custom_cnn model: bad idea
+STATS = "./stats/test-3.csv"
+MODEL = "./save_model/model_test-3.h5"
+MODEL_TYPE = 2
+ACTION_SPACE = 15 - ONLY STEERING
+LANE_DETECTION_TYPE = 3
+REWARD: NO THROTTLE/ NO STEERING/ ONLY CTE
+CTE_MAX_ERR = 3.5
+CTE_LIMIT = 3.0
+
+TEST 4: DONE - replaces TEST 1 where car follows right white lane - GOOD POLICY, try to improve hard steering changes
+             - stopped after 93 episodes due to 2000 steps limit reached most of times at the end
+STATS = "./stats/test-4.csv"
+MODEL = "./save_model/model_test-4.h5"
+MODEL_TYPE = 1
+ACTION_SPACE = 15 - ONLY STEERING
+LANE_DETECTION_TYPE = 1
+REWARD: NO THROTTLE/ NO STEERING/ ONLY CTE
+CTE_MAX_ERR = 2.0
+CTE_LIMIT = 1.0
+game_over-reward = -1.0
+
+TEST 8: DONE LANE_DETECTION_TYPE = 3 with regression (custom_model)
+STATS = "./stats/test-8.csv"
+MODEL = "./save_model/model_test-8.h5"
+MODEL_TYPE = 2
+ACTION_SPACE = 15 - ONLY STEERING
+LANE_DETECTION_TYPE = 3
+REWARD: NO THROTTLE/ NO STEERING/ ONLY CTE
+CTE_MAX_ERR = 3.5
+CTE_LIMIT = 3.0

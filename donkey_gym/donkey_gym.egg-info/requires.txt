@@ -1,0 +1,6 @@
+gym
+numpy
+flask
+eventlet
+python-socketio
+pillow
